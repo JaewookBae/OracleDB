@@ -21,6 +21,11 @@ insert into goodsinfo values ('10003','디지털3 TV',37000,'LG3');
 insert into goodsinfo values ('10004','디지털4 TV',38000,'LG4');
 commit; --완전저장, DML조작어할 때 사용(Insert, Update, Delete)
 
+--study17
+create table member1(ID varchar2(20), PASSWORD varchar2(20), NAME varchar2(20), AGE number(4),
+GENDER varchar2(10), EMAIL varchar2(20));
+select * from member1;
+
 --2. Sequence
 --DB에서 연속적으로 증가하는 값을 표현 : primary key
 --MySQL : increment
@@ -73,6 +78,3 @@ select * from dept_exam;
 select index_name, table_name, column_name from USER_IND_COLUMNS 
 where table_name IN ('EMP','DEPT');
 select * from tab;
-
-create table member1(ID varchar2(20), PASSWORD varchar2(20), NAME varchar2(20), AGE number(4),
-GENDER varchar2(10), EMAIL varchar2(20));
