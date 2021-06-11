@@ -17,6 +17,3 @@ Grant connect,Resource to java;
 drop user java cascade;
 
 
--- study18 계정
-create User javalink identified by javalink;
-grant connect, resource to javalink;
