@@ -1,8 +1,10 @@
---1.Í≥ÑÏ†ï ÎßåÎì§Í∏∞(system)
+
+
+--1.∞Ë¡§ ∏∏µÈ±‚(system)
 Create User javalink IDENTIFIED BY javalink;
 Grant CONNECT,Resource to javalink;
 
---2.Í≥ÑÏ†ï ÏÜçÏÑ± ÎßåÎì§Í∏∞
+--2.∞Ë¡§ º”º∫ ∏∏µÈ±‚
 create table member(
 	id varchar2(12),
 	password varchar2(12),
@@ -12,8 +14,28 @@ create table member(
 	email varchar2(30)
 );
 
-insert into member values('aaa','aaa','ÌôçÍ∏∏Îèô',22,'ÏÑúÏö∏Ïãú','a@a.com');
+insert into member values('aaa','aaa','»´±Êµø',22,'º≠øÔΩ√','a@a.com');
 commit;
 rollback;
 
 select * from member;
+
+------------------------------------
+--study19
+CREATE TABLE mms_member(
+	id NUMBER PRIMARY KEY,
+	name VARCHAR2(12) UNIQUE NOT NULL,
+	addr VARCHAR2(50) NOT NULL,
+	nation VARCHAR2(12) NOT NULL,
+	email VARCHAR2(30) NOT NULL,
+	age NUMBER NULL
+);
+CREATE SEQUENCE mms_member_id_seq;
+
+
+
+
+
+
+
+
