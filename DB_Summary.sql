@@ -51,8 +51,8 @@ insert into emp03 values(10, 'hong', 'sales', 30); -- 중복값
 
 -- 3. Primary Key : Unique + not null
 create table emp05(
-    empno number(4)CONSTRAINT emp04_empno_pk primary key,
-    ename varchar2(10)CONSTRAINT emp04_ename_nn not null,
+    empno number(4)CONSTRAINT emp05_empno_pk primary key,
+    ename varchar2(10)CONSTRAINT emp05_ename_nn not null,
     job varchar2(9),
     deptno number(2));
 insert into emp05 values(null, 'hong', 'sales', 30); -- null 불가
