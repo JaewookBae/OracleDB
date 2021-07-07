@@ -33,9 +33,9 @@ select sum(saleprice) from orders;
 --질의 3-16 2번 김연아 고객이 주문한 도서의 총 판매액을 구하시오.
 
 --질의 3-17 고객이 주문한 도서의 총 판매액, 평균값, 최저가, 최고가를 구하시오.
-
+select sum(saleprice), avg(saleprice), min(saleprice), max(saleprice) from orders;
 --질의 3-18 마당서점의 도서 판매 건수를 구하시오.
-
+select count(orderid) from orders;
 --질의 3-19 고객별로 주문한 도서의 총 수량과 총 판매액을 구하시오.
 
 --질의 3-20 가격이 8,000원 이상인 도서를 구매한 고객에 대하여 고객별 주문 도서의 총 수량을 구하시오. 단, 두 권 이상 구매한 고객만 구한다.
