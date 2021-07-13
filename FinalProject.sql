@@ -18,6 +18,7 @@ CREATE SEQUENCE FP_Member_seq;
 
 --test
 SELECT * FROM FP_Member;
+select * from FP_Board;
 
 -- 회원 가입 코드
 INSERT INTO FP_Member VALUES(
@@ -57,14 +58,17 @@ INSERT INTO FP_Board VALUES(
 
 SELECT * FROM FP_Board,FP_Member ORDER BY board_no DESC;
 select * from FP_Board order by board_no desc;
+delete from FP_Board where board_no = 34;
 
 select * from FP_Board where board_no=5;
 select * from FP_Member where member_no =4;
 
 COMMIT;
+rollback;
 
 --삭제 쿼리
-delete from FP_Board where board_no = 5;
+delete from FP_Board where board_no = 2;
+delete from FP_Member where member_id = 'bbbb';
 --내용 수정
 update FP_Board set board_title = '바뀐 제목~' , board_content = '바뀐 내용~'
 where board_no = 5;
