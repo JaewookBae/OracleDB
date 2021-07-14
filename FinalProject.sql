@@ -19,6 +19,9 @@ CREATE SEQUENCE FP_Member_seq;
 --test
 SELECT * FROM FP_Member;
 select * from FP_Board;
+select * from FP_Hobby;
+select * from FP_Hobby_category;
+delete from FP_Member where member_no='25';
 
 -- 회원 가입 코드
 INSERT INTO FP_Member VALUES(
@@ -45,6 +48,42 @@ CREATE TABLE FP_Board(
 
 DROP SEQUENCE FP_Board_seq;
 CREATE SEQUENCE FP_Board_seq;
+
+--hobby 카테고리
+DROP TABLE FP_Hobby_Category;
+CREATE TABLE FP_Hobby_Category(
+    hobby_category_no NUMBER,
+    hobby_category_name VARCHAR2(20)
+);
+DROP SEQUENCE FP_Hobby_Category_seq;
+CREATE SEQUENCE FP_Hobby_Category_seq;
+
+INSERT INTO FP_Hobby_Category VALUES(FP_Hobby_Category_seq.NEXTVAL,'야구');
+INSERT INTO FP_Hobby_Category VALUES(FP_Hobby_Category_seq.NEXTVAL,'축구');
+INSERT INTO FP_Hobby_Category VALUES(FP_Hobby_Category_seq.NEXTVAL,'농구');
+INSERT INTO FP_Hobby_Category VALUES(FP_Hobby_Category_seq.NEXTVAL,'당구');
+INSERT INTO FP_Hobby_Category VALUES(FP_Hobby_Category_seq.NEXTVAL,'배구');
+
+--취미 테이블
+DROP TABLE FP_Hobby;
+CREATE TABLE FP_Hobby(
+    hobby_no NUMBER,
+    member_no NUMBER,
+    hobby_category_no NUMBER
+);
+
+DROP SEQUENCE FP_Hobby_seq;
+CREATE SEQUENCE FP_Hobby_seq;
+commit;
+
+INSERT INTO FP_Hobby_Category VALUES(FP_Hobby_Category_seq.NEXTVAL,'테니스');
+commit;
+
+INSERT INTO FP_Hobby VALUES(FP_Hobby_seq.nextval, 2, 3);
+
+select * from FP_Hobby_Category;
+select * from FP_Hobby_Category order by hobby_no asc;
+select FP_Member_seq.nextval from Dual;
 
 --글 작성 쿼리
 INSERT INTO FP_Board VALUES(
