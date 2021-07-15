@@ -1,0 +1,48 @@
+select * from FP_Board
+where board_title like '%안녕%'
+;
+
+select * from FP_Board
+where board_content like '%안녕%'
+;
+
+select * from FP_Board, FP_Member
+where  FP_Member.member_no = FP_Board.member_no
+AND FP_Member.member_nick like '%Bae%'
+;
+
+select * from FP_Member;
+
+INSERT INTO FP_Board VALUES(
+    FP_Board_SEQ.nextval,
+    4,
+    '테스트 제목',
+    '테스트 내용',
+    0,
+    SYSDATE
+);
+commit;
+
+select * from(
+select t1.*, rownum as rnum from(
+    select * from FP_Board ORDER BY board_no DESC
+    ) t1
+) t2
+where t2.rnum >= (1-1)*10+1 and t2.rnum <= 1*10
+;
+
+
+select count(*) from FP_Board;
+
+
+
+
+
+
+
+
+
+
+
+
+
