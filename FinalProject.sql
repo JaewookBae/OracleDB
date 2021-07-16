@@ -119,14 +119,36 @@ where board_no = 5;
 select * from FP_Board;
 
 
+--이미지 테이블
+drop table FP_BoardImage;
+create table FP_BoardImage(
+    image_no number,
+    board_no number,
+    image_url varchar2(300),
+    image_ori varchar2(300)
+);
 
+drop sequence FP_BoardImage_seq;
+create sequence FP_BoardImage_seq;
 
+--test
+insert into FP_BoardImage values(
+    FP_BoardImage_seq.nextval,
+    1,
+    '2021/07/16/aaaaaa.jpg',
+    'qqqq.jpg'
+);    
 
+select * from FP_BoardImage
+where board_no = 1
+order by image_no asc
+;
 
+select FP_Board_seq.nextval from dual;
 
-
-
-
+select * from FP_BoardImage
+order by image_no asc
+;
 
 
 
