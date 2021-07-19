@@ -41,8 +41,3 @@ select count(*) from FP_Board;
 
 
 
-
-
-
-
-

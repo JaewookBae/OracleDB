@@ -119,15 +119,72 @@ where board_no = 5;
 select * from FP_Board;
 
 
+--이미지 테이블
+drop table FP_BoardImage;
+create table FP_BoardImage(
+    image_no number,
+    board_no number,
+    image_url varchar2(300),
+    image_ori varchar2(300)
+);
 
+drop sequence FP_BoardImage_seq;
+create sequence FP_BoardImage_seq;
 
+--test
+insert into FP_BoardImage values(
+    FP_BoardImage_seq.nextval,
+    1,
+    '2021/07/16/aaaaaa.jpg',
+    'qqqq.jpg'
+);    
 
+select * from FP_BoardImage
+where board_no = 1
+order by image_no asc
+;
 
+select FP_Board_seq.nextval from dual;
 
+select * from FP_BoardImage
+order by image_no asc
+;
 
+--메일 인증 테이블
+DROP TABLE FP_MailAuth;
+CREATE TABLE FP_MailAuth(
+    mailauth_no NUMBER,
+    member_no NUMBER,
+    mailauth_key VARCHAR2(100),
+    mailauth_complete VARCHAR2(4),
+    mailauth_date DATE
+);
 
+DROP SEQUENCE FP_MailAuth_seq;
+CREATE SEQUENCE FP_MailAuth_seq;
+select * from FP_MailAuth;
 
+--회원 가입시
+insert into FP_MailAuth values(
+    FP_MailAuth_seq.nextval,
+    3,
+    'asdasd-asdasdf-asdfsadfas',
+    'N'
+    null
+);
 
+--인증시
+update FP_MailAuth 
+set mailauth_complete = 'Y', mailauth_date = sysdate
+where mailauth_key = 'asdasd-asdasdf-asdfsadfas';
+
+--로그인 쿼리
+select * from FP_Member , FP_MailAuth
+where fp_mailauth.member_no = fp_member.member_no
+and member_id = 'b001'
+and member_pw = '1111asdasdasfsdf'
+and FP_MailAuth.mailauth_complete = 'Y'
+;
 
 
 
