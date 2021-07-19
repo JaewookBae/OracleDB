@@ -150,6 +150,7 @@ select * from FP_BoardImage
 order by image_no asc
 ;
 
+<<<<<<< HEAD
 --메일 인증 테이블
 DROP TABLE FP_MailAuth;
 CREATE TABLE FP_MailAuth(
@@ -185,6 +186,8 @@ and member_id = 'b001'
 and member_pw = '1111asdasdasfsdf'
 and FP_MailAuth.mailauth_complete = 'Y'
 ;
+=======
+>>>>>>> c847b88860866debc21510e6b5a39b3d4bbbcb8d
 
 
 
